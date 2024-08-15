@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package product_service;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "genproto/product_service";
+
+
+// Messages related to Product Service
+
+message Author {
+  string author_id = 1;
+  string full_name = 2;
+  google.protobuf.Timestamp date_of_birth = 3;
+  google.protobuf.Timestamp date_of_death = 4;
+}
+
+message Book {
+  string book_id = 1;
+  string book_name = 2;
+  float price = 3;
+  google.protobuf.Timestamp created_at = 4;
+  int32 quantity = 5;
+  bool is_sail = 6;
+  string author_id = 7;
+}
+
+message AuthorListResponse {
+  repeated Author authors = 1;
+}
+
+message BookListResponse {
+  repeated Book books = 1;
+}
+
+message Empty {
+}
+

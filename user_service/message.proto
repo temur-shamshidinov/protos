@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package user_service;
+
+option go_package = "genproto/user_service";
+
+// Messages related to User Service
+
+message User {
+  string user_id = 1;
+  string username = 2;
+  string phone_number = 3;
+  string password = 4;
+}
+
+message CreateUserRequest {
+  string username = 1;
+  string phone_number = 2;
+  string password = 3;
+}
+
+message CreateUserResponse {
+  string user_id = 1;
+}
+
+message GetUserRequest {
+  string user_id = 1;
+}
+
+message GetUserResponse {
+  User user = 1;
+}
+
+message UpdateUserRequest {
+  string user_id = 1;
+  string username = 2;
+  string phone_number = 3;
+  string password = 4;
+}
+
+message UpdateUserResponse {
+  string message = 1;
+}
+
+message DeleteUserRequest {
+  string user_id = 1;
+}
+
+message DeleteUserResponse {
+  string message = 1;
+}
+
+message LogInRequest {
+  string username = 1;
+  string password = 2;
+}
+
+message LogInResponse {
+  string user_id = 1;
+  string token = 2;
+}
+
+// Messages related to Basket
+
+message Basket {
+  string basket_id = 1;
+  string user_id = 2;
+  int32 quantity = 3;
+  repeated SelectedBook selected_books = 4;
+}
+
+message SelectedBook {
+  string selection_id = 1;
+  int32 quantity = 2;
+  string book_id = 3;
+  string basket_id = 4;
+  string user_id = 5;
+}
+
+message BasketResponse {
+  string message = 1;
+}
+
+message Empty {
+}
